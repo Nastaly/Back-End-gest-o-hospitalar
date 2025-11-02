@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: node-app
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/home/app/
+    networks:
+      - app-network
+
+  mysqldb:
+    image: mysql:8.0.21
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 4321
+    ports:
+      - 3306:3306
+    volumes:
+      - colab-v2_volume_db:/var/lib/mysql
+    networks:
+      - app-network
+
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  colab-v2_volume_db: {}
