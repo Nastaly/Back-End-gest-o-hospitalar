@@ -13,3 +13,81 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Paciente {
+  id Int @id @default(autoincrement())
+  nome            String @db.Varchar(100)
+  nrBI            String @db.Varchar(14)
+  dataNascimento  DateTime
+  peso            Float
+  altura          Float
+
+  consultas       Consulta[]
+  prescricoes     Prescricao[]
+  prontuarios     Prontuario[]
+  create_at DateTime @default(now()) @db.Timestamp(6)
+  update_at DateTime @updatedAt
+}
+
+model Consulta {
+  idConsulta      Int          @id @default(autoincrement())
+  data            DateTime
+
+  paciente        Paciente     @relation(fields: [idPaciente], references: [idPaciente])
+  idPaciente      Int
+
+  profissional    Profissional @relation(fields: [idProfissional], references: [idProfissional])
+  idProfissional  Int
+}
+
+model Profissional {
+  idProfissional  Int          @id @default(autoincrement())
+  nome            String
+  especialidade   String
+  agenda          String?
+
+  consultas       Consulta[]
+}
+
+model Prontuario {
+  idProntuario    Int         @id @default(autoincrement())
+  evolucao        String
+  exames          String
+
+  paciente        Paciente    @relation(fields: [idPaciente], references: [idPaciente])
+  idPaciente      Int
+}
+
+model Prescricao {
+  idPrescricao    Int         @id @default(autoincrement())
+  medicamento     String
+  dosagem         String
+
+  paciente        Paciente    @relation(fields: [idPaciente], references: [idPaciente])
+  idPaciente      Int
+}
+
+model Estoque {
+  idEstoque       Int         @id @default(autoincrement())
+  nome            String
+  quantidade      Int
+  validade        DateTime
+}
+
+model Usuario {
+  idUsuario      Int          @id @default(autoincrement())
+  login          String        @unique
+  senha          String
+  nivelAcesso    NivelAcesso
+
+  auditorias     Auditoria[]
+}
+
+model Auditoria {
+  idAuditoria    Int          @id @default(autoincrement())
+  operacao       String
+  dataHora       DateTime
+
+  usuario        Usuario      @relation(fields: [idUsuario], references: [idUsuario])
+  idUsuario      Int
+}

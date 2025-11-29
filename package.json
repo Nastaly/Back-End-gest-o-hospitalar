@@ -1,14 +1,13 @@
 {
   "dependencies": {
-    "@prisma/client": "^6.18.0",
+    "@prisma/client": "^6.19.0",
     "express": "^5.1.0",
-    "prisma": "^6.18.0"
+    "prisma": "^6.19.0"
   },
   "name": "2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -23,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/Nastaly/2/issues"
   },
-  "homepage": "https://github.com/Nastaly/2#readme"
+  "homepage": "https://github.com/Nastaly/2#readme",
+  "devDependencies": {}
 }
