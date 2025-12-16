@@ -1,4 +1,4 @@
-import{createEstoque, getEstoque, updateEstoque, deleteEstoque} from "../services/Estoqueservices.js";
+const {createEstoque, getEstoque, updateEstoque, deleteEstoque} = require('../services/Estoqueservices.js');
 
 class EstoqueController {
     async create (req, res){

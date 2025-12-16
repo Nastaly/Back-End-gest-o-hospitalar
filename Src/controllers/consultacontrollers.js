@@ -1,7 +1,7 @@
-import {createConsulta, getConsulta, updateConsulta, deleteConsulta} from  '../services/ConsultaService.js';
+const {createConsulta, getConsulta, updateConsulta, deleteConsulta} = require('../services/consultaservice.js');
 
 class ConsultaController {
-    async createConsulta(req, res) {
+    async create(req, res) {
         try {
             const consultaData = req.body;
             const newConsulta = await createConsulta(consultaData);
@@ -11,7 +11,7 @@ class ConsultaController {
         }   
     }
 
-    async getConsulta(req, res) {   
+    async get(req, res) {   
         try {
             const consultaId = req.params.id;
             const consulta = await getConsulta(consultaId);
@@ -25,7 +25,7 @@ class ConsultaController {
         }
     }
 
-    async updateConsulta(req, res) {        
+    async update(req, res) {        
         try {
             const consultaId = req.params.id;
             const consultaData = req.body;
@@ -41,7 +41,7 @@ class ConsultaController {
         }
     }
 
-    async deleteConsulta(req, res) {    
+    async delete(req, res) {    
         try {
             const consultaId = req.params.id;
             const deleted = await deleteConsulta(consultaId);

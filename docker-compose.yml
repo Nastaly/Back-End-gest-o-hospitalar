@@ -19,7 +19,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 4321
     ports:
-      - 3307:3307
+      - 3307:3306
     volumes:
       - colab-v2_volume_db:/var/lib/mysql
     networks:

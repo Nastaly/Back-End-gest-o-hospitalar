@@ -1,5 +1,5 @@
-const {PrismaClinet} = require ("@prisma/client");
-const prisma = new PrismaClinet()
+const {PrismaClient} = require("@prisma/client");
+const prisma = new PrismaClient();
 const Auditoria = prisma.auditorias
     const createAuditoria = async(data) =>{
         const result = await Auditoria.create({data})

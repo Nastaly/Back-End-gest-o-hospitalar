@@ -5,19 +5,18 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL") 
 }
 
 model Paciente {
   id Int @id @default(autoincrement())
-  nome            String @db.Varchar(100)
-  nrBI            String @db.Varchar(14)
+  nome            String
+  nrBI            String
   dataNascimento  DateTime
   peso            Float
   altura          Float
@@ -25,7 +24,7 @@ model Paciente {
   consultas       Consulta[]
   prescricoes     Prescricao[]
   prontuarios     Prontuario[]
-  create_at DateTime @default(now()) @db.Timestamp(6)
+  create_at DateTime @default(now())
   update_at DateTime @updatedAt
 }
 
@@ -33,7 +32,7 @@ model Consulta {
   idConsulta      Int          @id @default(autoincrement())
   data            DateTime
 
-  paciente        Paciente     @relation(fields: [idPaciente], references: [idPaciente])
+  paciente        Paciente     @relation(fields: [idPaciente], references: [id])
   idPaciente      Int
 
   profissional    Profissional @relation(fields: [idProfissional], references: [idProfissional])
@@ -54,7 +53,7 @@ model Prontuario {
   evolucao        String
   exames          String
 
-  paciente        Paciente    @relation(fields: [idPaciente], references: [idPaciente])
+  paciente        Paciente    @relation(fields: [idPaciente], references: [id])
   idPaciente      Int
 }
 
@@ -63,7 +62,7 @@ model Prescricao {
   medicamento     String
   dosagem         String
 
-  paciente        Paciente    @relation(fields: [idPaciente], references: [idPaciente])
+  paciente        Paciente    @relation(fields: [idPaciente], references: [id])
   idPaciente      Int
 }
 
@@ -72,6 +71,12 @@ model Estoque {
   nome            String
   quantidade      Int
   validade        DateTime
+}
+
+enum NivelAcesso {
+  ADMIN
+  USUARIO
+  VISUALIZADOR
 }
 
 model Usuario {

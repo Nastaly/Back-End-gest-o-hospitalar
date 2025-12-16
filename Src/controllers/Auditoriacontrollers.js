@@ -1,4 +1,4 @@
-import{createAuditoria, getAuditoria, updateAuditoria, deleteAuditoria} from "../services/Auditoriaservices.js";
+const {createAuditoria, getAuditoria, updateAuditoria, deleteAuditoria} = require('../services/Auditoriaservices.js');
 
 class AuditoriaController {
     async create (req, res){

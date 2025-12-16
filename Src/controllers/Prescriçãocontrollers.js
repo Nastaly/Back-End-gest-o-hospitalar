@@ -1,4 +1,4 @@
-import {createPrescricao, getPrescricao, updatePrescricao, deletePrescricao} from "../services/Prescriçãosservices.js";
+const {createPrescricao, getPrescricao, updatePrescricao, deletePrescricao} = require('../services/Prescriçãoservices.js');
 
 class PrescricaoController {
     async create (req, res){

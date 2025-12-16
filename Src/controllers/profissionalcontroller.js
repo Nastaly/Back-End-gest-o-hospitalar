@@ -1,4 +1,4 @@
-import{createProfissional, getProfissional, updateProfissional, deleteProfissional} from "../services/Profissionalservices.js"
+const {createProfissional, getProfissional, updateProfissional, deleteProfissional} = require('../services/Profissionalservices.js');
 
 class ProfissionalController {
     async create (req, res){
@@ -42,6 +42,7 @@ class ProfissionalController {
         }
     }
 }
-module
+
+module.exports = ProfissionalController;
 
 

@@ -1,4 +1,4 @@
-import {createUsuario, getUsuario, updateUsuario, deleteUsuario} from "../services/Usuarioservices.js";
+const {createUsuario, getUsuario, updateUsuario, deleteUsuario} = require('../services/Usuarioservices.js');
 
 class UsuarioController {
     async create (req, res){

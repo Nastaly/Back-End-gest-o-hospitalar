@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Prof/EIM31-Classes"
+		}
+	],
+	"settings": {
+		"prisma.pinToPrisma6": true
+	}
+}

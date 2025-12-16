@@ -1,4 +1,4 @@
-import {createProntuario, getProntuario, updateProntuario, deleteProntuario} from "../services/Prontuarioservices.js";
+const {createProntuario, getProntuario, updateProntuario, deleteProntuario} = require('../services/Prontuarioservices.js');
 
 class ProntuarioController {
     async create (req, res){
