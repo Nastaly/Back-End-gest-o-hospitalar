@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "@prisma/client": "^6.19.0",
-    "express": "^5.1.0",
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.16.3",
     "prisma": "^6.19.0"
   },
   "name": "2",
@@ -23,5 +26,5 @@
     "url": "https://github.com/Nastaly/2/issues"
   },
   "homepage": "https://github.com/Nastaly/2#readme",
-  "devDependencies": {}
+  "type": "commonjs"
 }
